@@ -1,7 +1,7 @@
 id: org.gnome.Gtranslator
 branch: stable
 runtime: org.gnome.Platform
-runtime-version: 3.28
+runtime-version: 3.30
 sdk: org.gnome.Sdk
 command: gtranslator
 build-options:
@@ -45,10 +45,12 @@ modules:
   - name: libgda
     sources:
       - type: archive
-        url: https://download.gnome.org/sources/libgda/5.2/libgda-5.2.4.tar.xz
-        sha256: 2cee38dd583ccbaa5bdf6c01ca5f88cc08758b9b144938a51a478eb2684b765e
+        url: https://download.gnome.org/sources/libgda/5.2/libgda-5.2.5.tar.xz
+        sha256: e3d2e4c28c08a22efd520767fa9d16e92cc1821f693261d7cb2892cc23ec90c8
     config-opts:
       - '--disable-tools'
+      - '--enable-system-sqlite=yes'
+      - '--disable-gi-system-install'
 
   - name: libpeas
     sources:
