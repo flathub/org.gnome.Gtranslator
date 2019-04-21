@@ -2,6 +2,7 @@ id: org.gnome.Gtranslator
 runtime: org.gnome.Platform
 runtime-version: '3.32'
 sdk: org.gnome.Sdk
+separate-locales: false
 command: gtranslator
 build-options:
   env:
@@ -75,7 +76,7 @@ modules:
     buildsystem: meson
     sources:
       - type: archive
-        url: https://download.gnome.org/sources/gtranslator/3.32/gtranslator-3.32.0.tar.xz
-        sha256: aa8b6ce7a6ea199a50ee8f65258e640af80407a7433359b853039a7ea07a11b7
+        url: https://download.gnome.org/sources/gtranslator/3.32/gtranslator-3.32.1.tar.xz
+        sha256: e1b37b0436684eb3079916eff7b6eeac2cd51ebbf8d2d6f35b5480ca0391b4da
     config-opts:
       - '--buildtype=release'
