@@ -1,6 +1,6 @@
 id: org.gnome.Gtranslator
 runtime: org.gnome.Platform
-runtime-version: '3.34beta'
+runtime-version: '3.34'
 sdk: org.gnome.Sdk
 separate-locales: false
 command: gtranslator
