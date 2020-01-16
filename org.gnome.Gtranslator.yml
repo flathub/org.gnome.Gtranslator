@@ -2,13 +2,7 @@ id: org.gnome.Gtranslator
 runtime: org.gnome.Platform
 runtime-version: '3.34'
 sdk: org.gnome.Sdk
-separate-locales: false
 command: gtranslator
-build-options:
-  cflags: "-O2 -g"
-  env:
-    PKG_CONFIG_GOBJECT_INTROSPECTION_1_0_GIRDIR: /app/share/gir-1.0
-    PKG_CONFIG_GOBJECT_INTROSPECTION_1_0_TYPELIBDIR: /app/lib/girepository-1.0
 cleanup:
   - '/include'
   - '/lib/pkgconfig'
@@ -21,14 +15,11 @@ cleanup:
   - '*.a'
 finish-args:
   - '--share=ipc'
-  - '--socket=x11'
+  - '--socket=fallback-x11'
   - '--share=network'
   - '--socket=wayland'
   - '--filesystem=home'
-  - '--filesystem=xdg-run/dconf'
-  - '--filesystem=~/.config/dconf:ro'
-  - '--talk-name=ca.desrt.dconf'
-  - '--env=DCONF_USER_CONFIG_DIR=.config/dconf'
+
 modules:
   - name: gspell
     sources:
@@ -52,14 +43,11 @@ modules:
         url: https://download.gnome.org/sources/gtksourceview/4.4/gtksourceview-4.4.0.tar.xz
         sha256: 9ddb914aef70a29a66acd93b4f762d5681202e44094d2d6370e51c9e389e689a
 
-  # this is needed by libgda
-  - name: intltool
-    sources:
-      - type: archive
-        url: https://launchpad.net/intltool/trunk/0.51.0/+download/intltool-0.51.0.tar.gz
-        md5: 12e517cac2b57a0121cda351570f1e63
-
   - name: libgda
+    build-options:
+      env:
+        PKG_CONFIG_GOBJECT_INTROSPECTION_1_0_GIRDIR: /app/share/gir-1.0
+        PKG_CONFIG_GOBJECT_INTROSPECTION_1_0_TYPELIBDIR: /app/lib/girepository-1.0
     sources:
       - type: archive
         url: https://download.gnome.org/sources/libgda/5.2/libgda-5.2.9.tar.xz
@@ -79,6 +67,8 @@ modules:
       - '/share/gtk-doc'
       - '/share/man'
       - '/share/pkgconfig'
+    modules:
+      - 'shared-modules/intltool/intltool-0.51.json'
 
   - name: gtranslator
     buildsystem: meson
