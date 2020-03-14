@@ -1,6 +1,6 @@
 id: org.gnome.Gtranslator
 runtime: org.gnome.Platform
-runtime-version: '3.34'
+runtime-version: '3.36'
 sdk: org.gnome.Sdk
 separate-locales: false
 command: gtranslator
@@ -21,8 +21,8 @@ cleanup:
   - '*.a'
 finish-args:
   - '--share=ipc'
-  - '--socket=x11'
   - '--share=network'
+  - '--socket=fallback-x11'
   - '--socket=wayland'
   - '--filesystem=home'
   - '--filesystem=xdg-run/dconf'
@@ -30,6 +30,12 @@ finish-args:
   - '--talk-name=ca.desrt.dconf'
   - '--env=DCONF_USER_CONFIG_DIR=.config/dconf'
 modules:
+  - name: libdazzle
+    buildsystem: meson
+    sources:
+      - type: git
+        url: https://gitlab.gnome.org/GNOME/libdazzle.git
+        branch: '3.36.0'
   - name: gspell
     sources:
       - type: archive
@@ -44,13 +50,6 @@ modules:
       - '/lib/pkgconfig'
       - '*.la'
       - '/share'
-
-  - name: gtksourceview
-    buildsystem: meson
-    sources:
-      - type: archive
-        url: https://download.gnome.org/sources/gtksourceview/4.4/gtksourceview-4.4.0.tar.xz
-        sha256: 9ddb914aef70a29a66acd93b4f762d5681202e44094d2d6370e51c9e389e689a
 
   # this is needed by libgda
   - name: intltool
@@ -84,10 +83,7 @@ modules:
     buildsystem: meson
     sources:
       - type: archive
-        url: https://download.gnome.org/sources/gtranslator/3.34/gtranslator-3.34.0.tar.xz
-        sha256: b2f25c02bdfd246896803756078c3006ef433c83eb802bc23a33413046bffb17
-      - type: file
-        path: org.gnome.Gtranslator.appdata.xml.in.in
-        dest-filename: data/org.gnome.Gtranslator.appdata.xml.in.in
+        url: https://download.gnome.org/sources/gtranslator/3.36/gtranslator-3.36.0.tar.xz
+        sha256: 2daa1d3b59b4a35ef54df087345b03e1703e725081f9dac543539228a715add3
     config-opts:
       - '--buildtype=release'
