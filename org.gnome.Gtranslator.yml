@@ -1,8 +1,7 @@
 id: org.gnome.Gtranslator
 runtime: org.gnome.Platform
-runtime-version: '3.36'
+runtime-version: '3.38'
 sdk: org.gnome.Sdk
-separate-locales: false
 command: gtranslator
 build-options:
   cflags: "-O2 -g"
@@ -27,6 +26,7 @@ finish-args:
   - '--filesystem=home'
   - '--filesystem=xdg-run/dconf'
   - '--filesystem=~/.config/dconf:ro'
+  - '--filesystem=xdg-download'
   - '--talk-name=ca.desrt.dconf'
   - '--env=DCONF_USER_CONFIG_DIR=.config/dconf'
 modules:
@@ -35,12 +35,13 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/libdazzle.git
-        branch: '3.36.0'
+        tag: '3.38.0'
+        commit: 235e1bd36e7c4324557a14690b446dc4b09a3ef3
   - name: gspell
     sources:
       - type: archive
-        url: https://download.gnome.org/sources/gspell/1.8/gspell-1.8.2.tar.xz
-        sha256: bb9195c3a95bacf556d0203e9691f7489e0d3bc5ae1e5a440c89b2f2435d3ed6
+        url: https://download.gnome.org/sources/gspell/1.8/gspell-1.8.4.tar.xz
+        sha256: cf4d16a716e813449bd631405dc1001ea89537b8cdae2b8abfb3999212bd43b4
     config-opts:
       - '--disable-gtk-doc'
       - '--disable-gtk-doc-html'
@@ -49,7 +50,9 @@ modules:
       - '/include'
       - '/lib/pkgconfig'
       - '*.la'
-      - '/share'
+      - '/share/gir-1.0'
+      - '/share/gtk-doc'
+      - '/share/vala'
 
   # this is needed by libgda
   - name: intltool
@@ -83,7 +86,7 @@ modules:
     buildsystem: meson
     sources:
       - type: archive
-        url: https://download.gnome.org/sources/gtranslator/3.36/gtranslator-3.36.0.tar.xz
-        sha256: 2daa1d3b59b4a35ef54df087345b03e1703e725081f9dac543539228a715add3
+        url: https://download.gnome.org/sources/gtranslator/3.38/gtranslator-3.38.0.tar.xz
+        sha256: dbcda9b81a22d9233be18e99fd5c448f6ab05759d1e94c10580bb831ca2d7635
     config-opts:
       - '--buildtype=release'
