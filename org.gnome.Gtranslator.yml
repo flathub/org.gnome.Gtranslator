@@ -85,11 +85,11 @@ modules:
   - name: gtranslator
     buildsystem: meson
     sources:
-      - type: file
-        path: org.gnome.Gtranslator.appdata.xml.in.in
-        dest-filename: data/org.gnome.Gtranslator.appdata.xml.in.in
       - type: archive
         url: https://download.gnome.org/sources/gtranslator/3.38/gtranslator-3.38.0.tar.xz
         sha256: dbcda9b81a22d9233be18e99fd5c448f6ab05759d1e94c10580bb831ca2d7635
+      - type: file
+        path: org.gnome.Gtranslator.appdata.xml.in.in
+        dest-filename: data/org.gnome.Gtranslator.appdata.xml.in.in
     config-opts:
       - '--buildtype=release'
