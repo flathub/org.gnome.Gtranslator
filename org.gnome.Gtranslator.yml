@@ -1,6 +1,6 @@
 id: org.gnome.Gtranslator
 runtime: org.gnome.Platform
-runtime-version: '3.38'
+runtime-version: '40'
 sdk: org.gnome.Sdk
 command: gtranslator
 build-options:
@@ -35,8 +35,8 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/libdazzle.git
-        tag: '3.38.0'
-        commit: 235e1bd36e7c4324557a14690b446dc4b09a3ef3
+        tag: '3.40.0'
+        commit: e9153eb01f8b5617fa363b1ee267c7d05f94efed
   - name: gspell
     sources:
       - type: archive
@@ -86,10 +86,7 @@ modules:
     buildsystem: meson
     sources:
       - type: archive
-        url: https://download.gnome.org/sources/gtranslator/3.38/gtranslator-3.38.0.tar.xz
-        sha256: dbcda9b81a22d9233be18e99fd5c448f6ab05759d1e94c10580bb831ca2d7635
-      - type: file
-        path: org.gnome.Gtranslator.appdata.xml.in.in
-        dest-filename: data/org.gnome.Gtranslator.appdata.xml.in.in
+        url: https://download.gnome.org/sources/gtranslator/40/gtranslator-40.0.tar.xz
+        sha256: ec3eba36dee1c549377d1475aef71748dbaebd295005e1990ea9821f02b38834
     config-opts:
       - '--buildtype=release'
