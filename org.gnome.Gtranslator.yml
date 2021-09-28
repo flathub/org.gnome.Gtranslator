@@ -82,7 +82,7 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/gtranslator.git
-        branch: gnome-41
-        commit: 74380955b3b59edfe69a9f4c5ba1f96e2a10db74
+        tag: 41.0
+        commit: b615f466828d23ab3967181911f6d85cf90a13b2
     config-opts:
       - '--buildtype=release'
