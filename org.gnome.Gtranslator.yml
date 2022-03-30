@@ -1,6 +1,6 @@
 id: org.gnome.Gtranslator
 runtime: org.gnome.Platform
-runtime-version: '41'
+runtime-version: '42'
 sdk: org.gnome.Sdk
 command: gtranslator
 build-options:
@@ -30,13 +30,6 @@ finish-args:
   - '--talk-name=ca.desrt.dconf'
   - '--env=DCONF_USER_CONFIG_DIR=.config/dconf'
 modules:
-  - name: libdazzle
-    buildsystem: meson
-    sources:
-      - type: git
-        url: https://gitlab.gnome.org/GNOME/libdazzle.git
-        tag: '3.42.0'
-        commit: 22b34014de28406d8c91cbe242d0e3d02cf9c54f
   - name: gspell
     sources:
       - type: git
@@ -82,7 +75,7 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/gtranslator.git
-        branch: gnome-41
-        commit: 74380955b3b59edfe69a9f4c5ba1f96e2a10db74
+        branch: gnome-42
+        commit: f6e3508a830db4b636526b2886b43bf62ca0fde3
     config-opts:
       - '--buildtype=release'
