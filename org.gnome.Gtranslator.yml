@@ -1,6 +1,6 @@
 id: org.gnome.Gtranslator
 runtime: org.gnome.Platform
-runtime-version: '42'
+runtime-version: '44'
 sdk: org.gnome.Sdk
 command: gtranslator
 build-options:
@@ -30,24 +30,6 @@ finish-args:
   - '--talk-name=ca.desrt.dconf'
   - '--env=DCONF_USER_CONFIG_DIR=.config/dconf'
 modules:
-  - name: gspell
-    sources:
-      - type: git
-        url: https://gitlab.gnome.org/GNOME/gspell.git
-        tag: '1.9.1'
-        commit: 5300d93dae00998801ef1be48da71dac4e2ebd1b
-    config-opts:
-      - '--disable-gtk-doc'
-      - '--disable-gtk-doc-html'
-    cleanup:
-      - '/bin'
-      - '/include'
-      - '/lib/pkgconfig'
-      - '*.la'
-      - '/share/gir-1.0'
-      - '/share/gtk-doc'
-      - '/share/vala'
-
   # this is needed by libgda
   - name: intltool
     sources:
@@ -75,7 +57,6 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/gtranslator.git
-        tag: 42.0
-        commit: 008879e07533848e8414eae3958d9446ec4aa0b2
+        commit: f8c472ccc1762e7fe9e03a01b8246508e3161ac2
     config-opts:
       - '--buildtype=release'
