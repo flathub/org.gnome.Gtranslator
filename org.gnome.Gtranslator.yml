@@ -1,6 +1,6 @@
 id: org.gnome.Gtranslator
 runtime: org.gnome.Platform
-runtime-version: '44'
+runtime-version: '45'
 sdk: org.gnome.Sdk
 command: gtranslator
 build-options:
@@ -52,11 +52,20 @@ modules:
     cleanup:
       - '/share/doc'
 
+  - name: libspelling
+    buildsystem: meson
+    config-opts:
+      - '-Ddocs=false'
+    sources:
+      - type: git
+        url: https://gitlab.gnome.org/chergert/libspelling.git
+        tag: 0.2.0
+
   - name: gtranslator
     buildsystem: meson
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/gtranslator.git
-        commit: ee39cfa94bec5cbe7fba1b9146d4aba6921c538e
+        tag: 45.1
     config-opts:
       - '--buildtype=release'
