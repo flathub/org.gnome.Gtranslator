@@ -38,6 +38,9 @@ modules:
       - type: archive
         url: https://download.gnome.org/sources/libgda/6.0/libgda-6.0.0.tar.xz
         sha256: 995f4b420e666da5c8bac9faf55e7aedbe3789c525d634720a53be3ccf27a670
+        x-checker-data:
+          type: gnome
+          name: libgda
       - type: patch
         path: patches/0001-Fix-undefined-behavior-due-to-signed-integer-overflo.patch
       - type: patch
@@ -55,6 +58,9 @@ modules:
       - type: archive
         url: https://download.gnome.org/sources/libspelling/0.2/libspelling-0.2.0.tar.xz
         sha256: fdc5609e02818eca6fc172ff164caa8e52dba638d7590130af3dfb1f28b53421
+        x-checker-data:
+          type: gnome
+          name: libspelling
 
   - name: gtranslator
     buildsystem: meson
@@ -62,5 +68,9 @@ modules:
       - type: archive
         url: https://download.gnome.org/sources/gtranslator/45/gtranslator-45.1.tar.xz
         sha256: 3acedb9abe614d7cdc9d2faa86e84874379b67102b7a2ae5e211b4973366fa1b
+        x-checker-data:
+          type: gnome
+          name: gtranslator
+          is-important: true
     config-opts:
       - '--buildtype=release'
