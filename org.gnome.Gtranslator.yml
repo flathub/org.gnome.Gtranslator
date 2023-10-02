@@ -67,8 +67,8 @@ modules:
     buildsystem: meson
     sources:
       - type: archive
-        url: https://download.gnome.org/sources/gtranslator/45/gtranslator-45.1.tar.xz
-        sha256: 3acedb9abe614d7cdc9d2faa86e84874379b67102b7a2ae5e211b4973366fa1b
+        url: https://download.gnome.org/sources/gtranslator/45/gtranslator-45.2.tar.xz
+        sha256: 1c946110e6f19013c162a422ca17f1de944c5ab8c29e30389a0df9f33314c8aa
         x-checker-data:
           type: gnome
           name: gtranslator
