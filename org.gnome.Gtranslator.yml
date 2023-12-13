@@ -25,11 +25,8 @@ finish-args:
   - '--socket=fallback-x11'
   - '--socket=wayland'
   - '--filesystem=home'
-  - '--filesystem=xdg-run/dconf'
-  - '--filesystem=~/.config/dconf:ro'
   - '--filesystem=xdg-download'
-  - '--talk-name=ca.desrt.dconf'
-  - '--env=DCONF_USER_CONFIG_DIR=.config/dconf'
+  - '--metadata=X-DConf=migrate-path=/org/gnome/Gtranslator/'
 modules:
   # this is needed by libgda
   - shared-modules/intltool/intltool-0.51.json
