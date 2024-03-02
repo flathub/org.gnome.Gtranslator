@@ -3,11 +3,6 @@ runtime: org.gnome.Platform
 runtime-version: '45'
 sdk: org.gnome.Sdk
 command: gtranslator
-build-options:
-  cflags: "-O2 -g"
-  env:
-    PKG_CONFIG_GOBJECT_INTROSPECTION_1_0_GIRDIR: /app/share/gir-1.0
-    PKG_CONFIG_GOBJECT_INTROSPECTION_1_0_TYPELIBDIR: /app/lib/girepository-1.0
 cleanup:
   - '/include'
   - '/lib/pkgconfig'
@@ -32,6 +27,10 @@ modules:
   - shared-modules/intltool/intltool-0.51.json
   - name: libgda
     buildsystem: meson
+    build-options:
+      env:
+        PKG_CONFIG_GOBJECT_INTROSPECTION_1_0_GIRDIR: /app/share/gir-1.0
+        PKG_CONFIG_GOBJECT_INTROSPECTION_1_0_TYPELIBDIR: /app/lib/girepository-1.0
     sources:
       - type: archive
         url: https://download.gnome.org/sources/libgda/6.0/libgda-6.0.0.tar.xz
