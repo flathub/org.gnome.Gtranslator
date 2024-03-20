@@ -4,29 +4,29 @@ runtime-version: '45'
 sdk: org.gnome.Sdk
 command: gtranslator
 build-options:
-  cflags: "-O2 -g"
+  cflags: -O2 -g
   env:
     PKG_CONFIG_GOBJECT_INTROSPECTION_1_0_GIRDIR: /app/share/gir-1.0
     PKG_CONFIG_GOBJECT_INTROSPECTION_1_0_TYPELIBDIR: /app/lib/girepository-1.0
 cleanup:
-  - '/include'
-  - '/lib/pkgconfig'
-  - '/share/pkgconfig'
-  - '/share/aclocal'
-  - '/man'
-  - '/share/man'
-  - '/share/gtk-doc'
+  - /include
+  - /lib/pkgconfig
+  - /share/pkgconfig
+  - /share/aclocal
+  - /man
+  - /share/man
+  - /share/gtk-doc
   - '*.la'
   - '*.a'
 finish-args:
-  - '--device=dri'
-  - '--share=ipc'
-  - '--share=network'
-  - '--socket=fallback-x11'
-  - '--socket=wayland'
-  - '--filesystem=home'
-  - '--filesystem=xdg-download'
-  - '--metadata=X-DConf=migrate-path=/org/gnome/Gtranslator/'
+  - --device=dri
+  - --share=ipc
+  - --share=network
+  - --socket=fallback-x11
+  - --socket=wayland
+  - --filesystem=home
+  - --filesystem=xdg-download
+  - --metadata=X-DConf=migrate-path=/org/gnome/Gtranslator/
 modules:
   # this is needed by libgda
   - shared-modules/intltool/intltool-0.51.json
@@ -44,18 +44,18 @@ modules:
       - type: patch
         path: patches/libgda-no-gtkdoc-markers.patch
     config-opts:
-      - '-Djson=true'
+      - -Djson=true
     cleanup:
-      - '/share/doc'
+      - /share/doc
 
   - name: libspelling
     buildsystem: meson
     config-opts:
-      - '-Ddocs=false'
+      - -Ddocs=false
     sources:
       - type: archive
-        url: https://download.gnome.org/sources/libspelling/0.2/libspelling-0.2.0.tar.xz
-        sha256: fdc5609e02818eca6fc172ff164caa8e52dba638d7590130af3dfb1f28b53421
+        url: https://download.gnome.org/sources/libspelling/0.2/libspelling-0.2.1.tar.xz
+        sha256: 7a787b467bd493f6baffb44138dbc4bef78aaab60efb76a7db88b243bf0f6343
         x-checker-data:
           type: gnome
           name: libspelling
@@ -64,11 +64,11 @@ modules:
     buildsystem: meson
     sources:
       - type: archive
-        url: https://download.gnome.org/sources/gtranslator/45/gtranslator-45.3.tar.xz
-        sha256: 3010204df5c7a5ae027f5a30b1544d6977d417f0e4bb9de297f0ad1a80331873
+        url: https://download.gnome.org/sources/gtranslator/46/gtranslator-46.0.tar.xz
+        sha256: 0a30bf0fd82d88f9a206659e8b5f59eaa93fb80f67530bbf9461c5bf6a1c0beb
         x-checker-data:
           type: gnome
           name: gtranslator
           is-important: true
     config-opts:
-      - '--buildtype=release'
+      - --buildtype=release
