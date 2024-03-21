@@ -73,6 +73,3 @@ modules:
           is-important: true
       - type: patch
         path: patches/0001-appdata-Fix-launchable.patch
-
-    config-opts:
-      - '--buildtype=release'
