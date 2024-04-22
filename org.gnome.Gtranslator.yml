@@ -4,24 +4,24 @@ runtime-version: '46'
 sdk: org.gnome.Sdk
 command: gtranslator
 cleanup:
-  - '/include'
-  - '/lib/pkgconfig'
-  - '/share/pkgconfig'
-  - '/share/aclocal'
-  - '/man'
-  - '/share/man'
-  - '/share/gtk-doc'
+  - /include
+  - /lib/pkgconfig
+  - /share/pkgconfig
+  - /share/aclocal
+  - /man
+  - /share/man
+  - /share/gtk-doc
   - '*.la'
   - '*.a'
 finish-args:
-  - '--device=dri'
-  - '--share=ipc'
-  - '--share=network'
-  - '--socket=fallback-x11'
-  - '--socket=wayland'
-  - '--filesystem=home'
-  - '--filesystem=xdg-download'
-  - '--metadata=X-DConf=migrate-path=/org/gnome/Gtranslator/'
+  - --device=dri
+  - --share=ipc
+  - --share=network
+  - --socket=fallback-x11
+  - --socket=wayland
+  - --filesystem=home
+  - --filesystem=xdg-download
+  - --metadata=X-DConf=migrate-path=/org/gnome/Gtranslator/
 modules:
   # this is needed by libgda
   - shared-modules/intltool/intltool-0.51.json
@@ -43,16 +43,16 @@ modules:
       - type: patch
         path: patches/libgda-no-gtkdoc-markers.patch
     config-opts:
-      - '-Dui=false'
-      - '-Djson=true'
+      - -Dui=false
+      - -Djson=true
     cleanup:
-      - '/share/doc'
+      - /share/doc
 
   - name: libspelling
     buildsystem: meson
     config-opts:
-      - '-Ddocs=false'
-      - '-Dvapi=false'
+      - -Ddocs=false
+      - -Dvapi=false
     sources:
       - type: archive
         url: https://download.gnome.org/sources/libspelling/0.2/libspelling-0.2.1.tar.xz
@@ -65,14 +65,9 @@ modules:
     buildsystem: meson
     sources:
       - type: archive
-        url: https://download.gnome.org/sources/gtranslator/46/gtranslator-46.0.tar.xz
-        sha256: 0a30bf0fd82d88f9a206659e8b5f59eaa93fb80f67530bbf9461c5bf6a1c0beb
+        url: https://download.gnome.org/sources/gtranslator/46/gtranslator-46.1.tar.xz
+        sha256: b4af3184891491fd89c1a0465652310156c07d156b6a24e1c07f3a4cf7579568
         x-checker-data:
           type: gnome
           name: gtranslator
           is-important: true
-      - type: patch
-        path: patches/0001-appdata-Fix-launchable.patch
-
-    config-opts:
-      - '--buildtype=release'
