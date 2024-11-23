@@ -58,6 +58,7 @@ modules:
         x-checker-data:
           type: gnome
           name: libspelling
+          is-important: true
 
   - name: gtranslator
     buildsystem: meson
