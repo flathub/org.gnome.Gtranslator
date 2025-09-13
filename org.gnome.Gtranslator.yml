@@ -26,6 +26,7 @@ modules:
   - name: libspelling
     buildsystem: meson
     config-opts:
+      - -Dintrospection=disabled
       - -Ddocs=false
       - -Dvapi=false
     sources:
