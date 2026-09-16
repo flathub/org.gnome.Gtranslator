@@ -1,6 +1,6 @@
 id: org.gnome.Gtranslator
 runtime: org.gnome.Platform
-runtime-version: '50'
+runtime-version: '51'
 sdk: org.gnome.Sdk
 command: gtranslator
 cleanup:
@@ -35,8 +35,8 @@ modules:
     buildsystem: meson
     sources:
       - type: archive
-        url: https://download.gnome.org/sources/gtranslator/50/gtranslator-50.0.tar.xz
-        sha256: 857b51c78f54df42418ff6fa9e62b8554df7f021cb12338c1fc0d85b99c918ef
+        url: https://download.gnome.org/sources/gtranslator/51/gtranslator-51.0.tar.xz
+        sha256: 2dc283b4e36624064bdc85e657eb4de1eb01feba62a1b0eb3b2221fc6c02c75a
         x-checker-data:
           type: gnome
           name: gtranslator
